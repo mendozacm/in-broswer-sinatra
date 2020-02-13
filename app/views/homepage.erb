@@ -3,10 +3,14 @@
   
   <p1>Please enter your login and password or click "New Account" to create a new account!</p1>
   <p></p>
-  <p>Username: <input type="text"></p>
-  <p>Password: <input type="text"></p>
- <p> <input type="submit", value="login"> </p>
- <p> <input type="submit", value="New Account"> </p>
+    <form method="POST" action="/login">
+      <p>Username: <input type="text"></p>
+      <p>Password: <input type="text"></p>
+      <p> <input type="submit", value="login"> </p>
+    </form>
+    <form method="POST" action="/new-account">
+      <p> <input type="submit", value="New Account"> </p>
+    </form>
  
 
   
