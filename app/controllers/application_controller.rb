@@ -10,5 +10,17 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :homepage
   end
+  
+  post "/new-account" do
+    erb :new_account
+  end
+  
+  post "/new_account_homepage" do
+    erb :new_account_homepage
+  end
+  
+  post "/login" do
+    erb :login
+  end
 
 end
