@@ -6,12 +6,20 @@
   <form method="POST" action="/new_account_homepage">
     
       <p>Username must be unique for new account to be created!</p>
-        <p>First name: <input type="text"></p>
-        <p>Last name: <input type="text"></p>
-        <p>Email: <input type="text"></p>
-        <p>Date of birth: <input type="text", value="(dd/mm/yyyy)"></p>
-        <p>Username: <input type="text"></p>
-        <p>Password: <input type="text"></p>
+        <p>First name:<br> <input type="text"></p>
+        <p>Last name:<br> <input type="text"></p>
+        <p>Email:<br> <input type="text"></p>
+        <p>Date of birth:<br> <input type="text", value="(dd/mm/yyyy)"></p>
+        <p>Gender:<br> <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male</label><br>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label><br>
+          <input type="radio" id="other" name="gender" value="other">
+          <label for="other">Other</label><br>
+          <input type="radio" id="prefer_not_to_say" name="gender" value="prefer_not_to_say">
+          <label for="prefer_not_to_say">Prefer not to say</label></p>
+        <p>Username:<br> <input type="text"></p>
+        <p>Password:<br> <input type="text"></p>
         
        
         <p> <input type="submit", value="submit"> </p>
