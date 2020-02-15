@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  get 'signup'
-    erb :"users/new"
+  
+  get '/signup' do
+    erb :"users/new.html"
   end
   
   post '/users' do
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     if @user.save
-      ridirect '/login'
+      redirect '/login'
     else
       erb :"users/new"
     end
