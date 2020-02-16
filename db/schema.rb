@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200215222135) do
+ActiveRecord::Schema.define(version: 20200216222903) do
+
+  create_table "posts", force: :cascade do |t|
+    t.string  "owner_name"
+    t.integer "total_pets"
+    t.integer "dogs"
+    t.integer "cats"
+    t.integer "birds"
+    t.text    "special_needs"
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
