@@ -12,6 +12,19 @@ class PostsController < ApplicationController
     end
   end
   
+   post '/new_post' do
+    @post = Post.new
+    @post.owner_name = params[:owner_name]
+    @post.dogs = params[:dogs]
+    @post.cats = params[:cats]
+    @post.birds = params[:birds]
+    if @post.save
+      redirect '/logged_in'
+    else
+    erb :"/new_post"
+    end
+  end
+  
   get '/posts/:id/edit' do
     if !logged_in?
       redirect "/login"
