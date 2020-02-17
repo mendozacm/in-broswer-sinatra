@@ -25,6 +25,16 @@ class PostsController < ApplicationController
     end
   end
   
+  get'/new_posts/all_posts' do
+    if !logged_in?
+      redirect "/login"
+    else
+     "#{params[:dogs]}"
+       
+   end
+ end
+  
+  
   get '/posts/:id/edit' do
     if !logged_in?
       redirect "/login"
@@ -33,7 +43,7 @@ class PostsController < ApplicationController
       
         "An edit post form #{current_user.email} is editing #{post.id}"
       else
-        redirect '/posts'
+        redirect '/logged_in'
     end
   end
 end
