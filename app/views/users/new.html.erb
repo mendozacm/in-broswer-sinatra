@@ -1,5 +1,7 @@
 <h1>Signup</h1>
 
+<%= "Must unclude email and password" if @user && @user.errors.any? %>
+
 <form action="/users" method="POST">
   
   <p>
@@ -12,6 +14,16 @@
   </p>
   
   <input type="submit" />
-  
-  
+  <p></p>
 </form>
+  
+  <p>To see what our site offers click the botton below to catch a glimpse of it!</p>
+  <form action="/posts" method="GET">
+    <input type="submit", value="Try it out">
+  </form>
+  <p> </p>
+  <p>Forgot you had an account? No worries, just click below to sign in!</p>
+  <form action="/login" method="GET">
+    <input type="submit" value="Login">
+    
+  </form>

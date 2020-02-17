@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   get '/posts' do
-   "A list of publically available posts"
+   erb :public_posts
   end
   
   get '/posts/new' do
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       redirect "/login"
     else
      if post = current_user.posts.find_by(params[:id])
-      #if post.user_id == current_user.id
+      
         "An edit post form #{current_user.email} is editing #{post.id}"
       else
         redirect '/posts'
