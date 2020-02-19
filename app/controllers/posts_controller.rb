@@ -22,9 +22,7 @@ class PostsController < ApplicationController
     if logged_in?
          @post = Post.new
          @post.owner_name = params[:owner_name]
-         @post.dogs = params[:dogs]
-         @post.cats = params[:cats]
-         @post.birds = params[:birds]
+         @post.location_name = params[:location_name]
          @post.dogs = params[:dogs]
          @post.cats = params[:cats]
          @post.birds = params[:birds]
