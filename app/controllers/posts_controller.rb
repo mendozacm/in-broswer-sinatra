@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   
    post '/new_post' do
     @post = Post.new
-    @post.owner_name = params[:owner_name]
+    @post.owner = params[:owner]
     @post.dogs = params[:dogs]
     @post.cats = params[:cats]
     @post.birds = params[:birds]
