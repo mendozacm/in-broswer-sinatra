@@ -16,20 +16,46 @@ class PostsController < ApplicationController
     end
   end
   
-   post '/new_post' do
-    @post = Post.new
-    @post.owner = params[:owner]
-    @post.dogs = params[:dogs]
-    @post.cats = params[:cats]
-    @post.birds = params[:birds]
-    if @post.save
-      redirect '/logged_in'
+  
+   
+  post '/new_posts' do
+    if logged_in?
+         @post = Post.new
+         @post.owner_name = params[:owner_name]
+         @post.dogs = params[:dogs]
+         @post.cats = params[:cats]
+         @post.birds = params[:birds]
+         @post.dogs = params[:dogs]
+         @post.cats = params[:cats]
+         @post.birds = params[:birds]
+         @post.user_id = params[:user_id]
+        if @post.save
+          redirect to "/logged_in"
+        else
+          "that did not work"
+        end
     else
-    erb :"/new_post"
+      redirect to '/login'
     end
   end
   
-  post '/new_posts/all_posts' do
+   
+  
+  
+  
+  
+  
+  # post '/new_post' do
+   # @post = Post.new
+    #@post = current_user.post.build(content: params[:content])
+    #if @post.save
+     # redirect '/logged_in'
+    #else
+    #erb :"/new_post"
+    #end
+  #end
+  
+  get '/new_posts' do
     erb :all_posts
   end
  
@@ -48,6 +74,7 @@ class PostsController < ApplicationController
     end
   end
 end
+  
   
   
 end
