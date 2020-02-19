@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   end
   
   
+  
    
   post '/new_posts' do
     if logged_in?
@@ -26,7 +27,7 @@ class PostsController < ApplicationController
          @post.dogs = params[:dogs]
          @post.cats = params[:cats]
          @post.birds = params[:birds]
-         @post.user_id = params[:user_id]
+         @post.user_id = current_user.id
         if @post.save
           redirect to "/logged_in"
         else
