@@ -29,7 +29,7 @@ class PostsController < ApplicationController
          @post.birds = params[:birds]
          @post.user_id = current_user.id
         if @post.save
-          redirect to "/logged_in"
+          erb :all_posts
         else
           "that did not work"
         end

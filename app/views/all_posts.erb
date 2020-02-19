@@ -1,4 +1,5 @@
-<p> Welcome, <%= current_user.email %>
+<h1>PetBooK</h1>
+<p> Welcome, <%= current_user.email %></p>
 <h2> Posts </h2>
 
 <%=
@@ -7,5 +8,5 @@ Location Name: #{params[:location_name]}<br>
 Total number of Dogs: #{params[:dogs]}<br>
 Total number of Cats: #{params[:cats]}<br>
 Total number of Birds: #{params[:birds]}<br>
-#{params[:owner_id]} = id"
+#{@post.user_id} = id"
 %>

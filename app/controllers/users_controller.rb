@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   
   post '/users' do
     @user = User.new
-    @user.owner_id = params[:user_id]
     @user.email = params[:email]
     @user.password = params[:password]
     if @user.save
