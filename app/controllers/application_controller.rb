@@ -12,11 +12,13 @@ class ApplicationController < Sinatra::Base
   helpers do
     
     def logged_in?
+      #checks to see if you're logged in
       !!current_user
     end
     
     
     def current_user
+      #defines the current user if the email is equal to session email
       @current_user ||= User.find_by(:email => session[:email]) if session[:email]
     end
   
@@ -35,7 +37,7 @@ class ApplicationController < Sinatra::Base
     end
       
   end
-
+  
   get "/" do
     erb :homepage
   end
@@ -48,6 +50,8 @@ class ApplicationController < Sinatra::Base
   post "/new_account_homepage" do
     erb :new_account_homepage
   end
+
+  
   
   
 
