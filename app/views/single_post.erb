@@ -1,9 +1,23 @@
 <h1>PetBooK</h1>  
 <p> Welcome, <%= current_user.email %>
 <h2> Posts </h2>
+   
+   
+   <%   @posts.each do |posts|%>
+   <li> <%= posts.dogs%> </li>
+   <% end%>
+   
+  <% Post.where(user_id: '2').each do |pups| %>
+  <%= pups.dogs %>
+  <% end %>
+  
+ 
+ 
 
-  <%@posts.to_s
-  @posts.each do |posts|%>
-  <%= posts.dogs%>
- <% end%>
+ 
+ 
+ 
+ 
+ 
+ 
   
