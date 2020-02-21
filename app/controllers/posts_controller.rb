@@ -25,11 +25,6 @@ class PostsController < ApplicationController
     erb :single_post
   end
   
- # post '/posts' do 
-    
-  # redirect'/posts'
-  #end
-  
    
   post '/posts' do
     if logged_in?
@@ -62,20 +57,17 @@ class PostsController < ApplicationController
   end
  
  
-  
-  
   get '/posts/:id/edit' do
-    if !logged_in?
-      redirect "/login"
-    else
-     if post = current_user.posts.find_by(params[:id])
-      
-        "An edit post form #{current_user.email} is editing #{post.id}"
-      else
-        redirect '/logged_in'
-      end
+    @posts = Post.find_by_id(params[:id])
+    
+    if @post && @post.user_id == current_user.id
+      erb :edit_post
+    else 
+      erb :filed
     end
   end
+  
+  
   
   
   
