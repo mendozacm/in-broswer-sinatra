@@ -69,7 +69,8 @@ class PostsController < ApplicationController
     end
   end
   
-  get '/posts/mine' do
+  get '/my_posts' do
+     @posts = Post.where(user_id:(current_user.id))
     erb :my_posts
   end
   
