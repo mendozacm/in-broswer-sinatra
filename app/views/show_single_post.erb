@@ -1,0 +1,16 @@
+
+<h1>PetBooK</h1>  
+<p> Welcome, <%= current_user.email %>
+<h2> Your Post! </h2>
+   
+   
+<div> 
+      <% @post = Post.find_by_id(params[:id])%>
+       <li>  Owner Name: <%= @post.owner_name %><br>
+       Location: <%= @post.location_name %><br>
+       Dogs: <%= @post.dogs %> <br>
+       Cats: <%= @post.cats %> <br>
+       Birds: <%= @post.birds %><br>
+ <br>
+ </div>
+ 

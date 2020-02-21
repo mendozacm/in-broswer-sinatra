@@ -5,7 +5,7 @@ class PostsController < ApplicationController
    erb :public_posts
   end
   
-  #new post form
+  #create
   get '/user/posts/create' do
     if !logged_in?
       redirect "/login"
@@ -14,9 +14,15 @@ class PostsController < ApplicationController
     end
   end
   
+  #read
   get '/posts/:user_id' do
     @posts = Post.where(user_id:(params[:user_id]))
     erb :show
+  end
+  
+  get '/posts/:id/single' do
+    @post = Post.where(id:(params[:id]))
+    erb :show_single_post
   end
 
   #index
