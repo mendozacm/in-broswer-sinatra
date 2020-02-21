@@ -1,3 +1,4 @@
+
 class PostsController < ApplicationController
   
   get '/posts/public' do
@@ -5,7 +6,7 @@ class PostsController < ApplicationController
   end
   
   #new post form
-  get '/posts/create' do
+  get '/user/posts/create' do
     if !logged_in?
       redirect "/login"
     else
@@ -13,20 +14,20 @@ class PostsController < ApplicationController
     end
   end
   
-  #create
-  post '/posts' do 
-    @post = Post.create(params)
-   
-  end
-  
+
   #index
   get '/posts' do
     @posts = Post.all 
     erb :single_post
   end
   
+ # post '/posts' do 
+    
+  # redirect'/posts'
+  #end
+  
    
-  post '/new_posts' do
+  post '/posts' do
     if logged_in?
          @post = Post.new
          @post.owner_name = params[:owner_name]
@@ -36,7 +37,7 @@ class PostsController < ApplicationController
          @post.birds = params[:birds]
          @post.user_id = current_user.id
         if @post.save
-          erb :all_posts
+          redirect '/posts'
         else
           "that did not work"
         end
