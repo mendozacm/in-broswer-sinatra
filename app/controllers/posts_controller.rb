@@ -5,7 +5,7 @@ class PostsController < ApplicationController
    erb :public_posts
   end
   
-  #create
+  #takes the user to a page where they create a new post
   get '/user/posts/create' do
     if !logged_in?
       redirect "/login"
@@ -14,24 +14,25 @@ class PostsController < ApplicationController
     end
   end
   
-  #read
+  #read find all posts for a single user
   get '/posts/:user_id' do
     @posts = Post.where(user_id:(params[:user_id]))
     erb :show
   end
   
+  #read a single post based on the post id
   get '/posts/:id/single' do
     @post = Post.where(id:(params[:id]))
     erb :show_single_post
   end
 
-  #index
+  #shows the last post that was made 
   get '/posts' do
     @posts = Post.all 
     erb :single_post
   end
   
-   
+   #saves a new post into the database
   post '/posts' do
     if logged_in?
          @post = Post.new
@@ -51,15 +52,10 @@ class PostsController < ApplicationController
     end
   end
   
-   
-  get '/all_posts' do
+   #shows all the posts that have been made by everyone
+  get '/all/posts' do
     @posts = Post.all
-    erb :multiple_posts 
-  end
-  
-  
-  get '/new_posts' do
-    erb :all_posts
+    erb :all_posts 
   end
  
  
@@ -71,6 +67,10 @@ class PostsController < ApplicationController
     else 
       erb :filed
     end
+  end
+  
+  get '/posts/mine' do
+    erb :my_posts
   end
   
   

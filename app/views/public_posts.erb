@@ -1,16 +1,21 @@
 <h1>PetBook</h1>
 
-<p>This is just a model, to see more you must sign up and create an account</p>
+<p>This is just a single post, to see more you must sign up and create an account</p>
 
 <p>If you like what you see go ahead and create an account, just click below!</p>
+   
+   
+<div> 
+       <li>  Owner Name: <%= Post.last.owner_name %><br>
+       Location: <%= Post.last.location_name %><br>
+       Dogs: <%= Post.last.dogs %> <br>
+       Cats: <%= Post.last.cats %> <br>
+       Birds: <%= Post.last.birds %><br>
+ <br>
+ </div>
+ 
 
-<%=
-"Owner Name: Cesar Mendoza<br>
-Location: Dallas, Texas<br>
-Total number of Dogs: 4<br>
-Total number of Cats: 5<br>
-Total number of Birds: 6<br>"
-%>
+  
 <br>
 
 <form action="/signup" method="GET">
