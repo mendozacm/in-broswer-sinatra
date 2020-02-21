@@ -58,7 +58,7 @@ class PostsController < ApplicationController
  
  
   get '/posts/:id/edit' do
-    @posts = Post.find_by_id(params[:id])
+    @post = Post.find_by_id(params[:id])
     
     if @post && @post.user_id == current_user.id
       erb :edit_post
