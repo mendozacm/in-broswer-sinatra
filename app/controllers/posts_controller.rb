@@ -14,6 +14,10 @@ class PostsController < ApplicationController
     end
   end
   
+  get '/posts/:user_id' do
+    @posts = Post.where(user_id:(params[:user_id]))
+    erb :show
+  end
 
   #index
   get '/posts' do
