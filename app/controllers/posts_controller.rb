@@ -1,22 +1,29 @@
 class PostsController < ApplicationController
   
-  get '/posts' do
-    #posts that non users can see
+  get '/posts/public' do
    erb :public_posts
   end
   
-  get '/posts/new' do
-    #checking to see if the user is logged in
+  #new post form
+  get '/posts/create' do
     if !logged_in?
-      #if not logged in then redirect to the login page
       redirect "/login"
     else
-      #if they are logged in then redirect to 
-      erb :new_post
+      erb :new_post_form
     end
   end
   
+  #create
+  post '/posts' do 
+    @post = Post.create(params)
+   
+  end
   
+  #index
+  get '/posts' do
+    @posts = Post.all 
+    erb :single_post
+  end
   
    
   post '/new_posts' do
@@ -39,20 +46,11 @@ class PostsController < ApplicationController
   end
   
    
+  get '/all_posts' do
+    @posts = Post.all
+    erb :multiple_posts 
+  end
   
-  
-  
-  
-  
-  # post '/new_post' do
-   # @post = Post.new
-    #@post = current_user.post.build(content: params[:content])
-    #if @post.save
-     # redirect '/logged_in'
-    #else
-    #erb :"/new_post"
-    #end
-  #end
   
   get '/new_posts' do
     erb :all_posts
@@ -70,9 +68,9 @@ class PostsController < ApplicationController
         "An edit post form #{current_user.email} is editing #{post.id}"
       else
         redirect '/logged_in'
+      end
     end
   end
-end
   
   
   

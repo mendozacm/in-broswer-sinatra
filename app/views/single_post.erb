@@ -1,0 +1,10 @@
+<h1>PetBooK</h1>  
+<p> Welcome, <%= current_user.email %>
+<h2> Posts </h2>
+
+  <%
+  @posts.to_s
+  @posts.each do |posts|%>
+  <%=  posts.dogs%>
+ <% end%>
+  

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
   
   get '/logged_in' do
-    erb :logged_in
+    erb :single_post
   end
   
   post '/sessions' do
