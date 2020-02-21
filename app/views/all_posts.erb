@@ -2,11 +2,12 @@
 <p> Welcome, <%= current_user.email %></p>
 <h2> Posts </h2>
 
-<%=
-"Owner Name: #{params[:owner_name]}<br>
-Location Name: #{params[:location_name]}<br>
-Total number of Dogs: #{params[:dogs]}<br>
-Total number of Cats: #{params[:cats]}<br>
-Total number of Birds: #{params[:birds]}<br>
-#{@post.user_id} = id"
-%>
+<% Post.where(user_id: '2').each do |pups| %>
+ <li>  Owner Name: <%= pups.owner_name %><br>
+       Location: <%= pups.location_name %><br>
+       Total number of Dogs: <%= pups.dogs %> <br>
+       Total number of Cats: <%= pups.cats %> <br>
+       Total number of Birds: <%= pups.birds %><br>
+       <br>
+ </li>
+  <% end %>

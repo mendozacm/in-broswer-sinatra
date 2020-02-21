@@ -3,16 +3,23 @@
 <h2> Posts </h2>
    
    
-   <%   @posts.each do |posts|%>
-   <li> <%= posts.dogs%> </li>
-   <% end%>
-   
-  <% Post.where(user_id: '2').each do |pups| %>
-  <%= pups.dogs %>
-  <% end %>
   
+  
+
+ <li>  Owner Name: <%= Post.last.owner_name %><br>
+       Location: <%= Post.last.location_name %><br>
+       Dogs: <%= Post.last.dogs %> <br>
+       Cats: <%= Post.last.cats %> <br>
+       Birds: <%= Post.last.birds %><br>
+ <br>
+ </li>
+  
+       
+   
+       
+       
  
- 
+  
 
  
  
