@@ -13,11 +13,13 @@
        Total number of Birds: <%= pups.birds %><br>
        User id: <%= pups.user_id%><br>
        Post ID: <%= pups.id%><br>
+       <form action="/posts/<%=pups.id%>/edit" method="GET">
+       <input type="submit" value="edit" />
+        </form>
        <br>
        <% end %>
+       
        <br>
       </li>
+      
 </div>
- 
-
-  

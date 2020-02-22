@@ -69,6 +69,7 @@ class PostsController < ApplicationController
     end
   end
   
+  #show only my posts
   get '/my_posts' do
      @posts = Post.where(user_id:(current_user.id))
     erb :my_posts
