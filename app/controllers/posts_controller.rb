@@ -81,6 +81,11 @@ class PostsController < ApplicationController
     redirect to "/posts/#{ @post.id }/single"
   end
   
-  
+  #destroy
+  delete "/posts/:id/delete" do
+    Post.destroy(params[:id])
+    redirect to "/all/posts"
+  end
+
   
 end
