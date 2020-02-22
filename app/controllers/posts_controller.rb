@@ -65,7 +65,7 @@ class PostsController < ApplicationController
     if @post && @post.user_id == current_user.id
       erb :edit_post
     else 
-      erb :filed
+      redirect '/my_posts'
     end
   end
   
