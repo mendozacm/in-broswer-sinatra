@@ -74,7 +74,12 @@ class PostsController < ApplicationController
     erb :my_posts
   end
   
-  
+   # update
+  patch "/posts/:id/single" do
+    @post = Post.find(params[:id])
+    @post.update(params[:post])
+    redirect to "/posts/#{ @post.id }/single"
+  end
   
   
   

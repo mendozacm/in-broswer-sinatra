@@ -2,8 +2,35 @@ hello editor
 
 <h2> Edit Post </h2>
 
-<form method="post" action="/posts/<%=@post.id%>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <input type="text" name="content" value="<%= @tweet.content %>">
-  <input type="submit" value="submit">
+
+
+<form action="/posts/<%= @post.id %>/single" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <ul>
+    <li>
+      <label for="owner_name">Owner_name</label>
+      <input id="owner_name" type="text" name="post[owner_name]" value="<%= @post.owner_name %>" />
+    </li>
+    <li>
+      <label for="location_name">Location_name</label>
+      <input id="location_name" type="text" name="post[location_name]"  value="<%= @post.location_name %>"
+      />
+    </li>
+    <li>
+      <label for="dogs">Dogs</label>
+      <input id="dogs" type="text" name="post[dogs]"  value="<%= @post.dogs %>"
+      />
+    </li>
+    <li>
+      <label for="cats">Cats</label>
+      <input id="cats" type="text" name="post[cats]"  value="<%= @post.cats %>"
+      />
+    </li>
+    <li>
+      <label for="birds">Birds</label>
+      <input id="birds" type="text" name="post[birds]"  value="<%= @post.birds %>"
+      />
+    </li>
+  </ul>
+  <input type="submit" />
 </form>
