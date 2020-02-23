@@ -1,4 +1,6 @@
-
+  <form align="right" action="/logout" method="GET">
+  <input type="submit" value="Logout!">
+  </form>
 <h1>PetBooK</h1>  
 <p> Welcome, <%= current_user.email %>
 <h2> Your Post! </h2>
@@ -13,4 +15,6 @@
        Birds: <%= @post.birds %><br>
  <br>
  </div>
- 
+       <form align="right" action="/logged_in" method="GET">
+        <input type="submit" value="Home!">
+       </form>
