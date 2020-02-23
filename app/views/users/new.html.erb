@@ -2,6 +2,7 @@
 <h1>Signup</h1>
 
 <%= "Must unclude email and password" if @user && @user.errors.any? %>
+
 <h1>Welcome to PetBooK!</h1>
   <p>It seems you need a new account! We can help with that!</p>
   <p>Fill in the information below with your correct information click "submit", then login! Easy peasy!</p>
@@ -9,12 +10,15 @@
     
         
         <b><label for="email">Email:</label></b><br>
-        <input type="text" name="email" id="email" /> </p></b>
+        <input type="email" name="email" id="email" /> </p></b>
         <p><details><summary><b><label for="password">Password:</label></b></summary>
                 For your protection it is best to use a safe password<br>
                 Safe passwords generally consist of at least one uppercase letter, one lowercase letter, one symbol, and one number.
-                </details><input type="text" name="password" id="password" />
-                <p><input type="submit" /></p>
+                </details><b><input type="password" name="password" id="password1" /></b><br>
+                
+                
+                <b><input type="submit" />
+                </p>
                 
         
         
@@ -24,10 +28,7 @@
 
 
   
-  <p>To see what our site offers click the botton below to catch a glimpse of it!</p>
-  <form action="/posts/public" method="GET">
-    <input type="submit", value="Try it out">
-  </form>
+  
   <p> </p>
   <p>Forgot you had an account? No worries, just click below to sign in!</p>
   <form action="/login" method="GET">
