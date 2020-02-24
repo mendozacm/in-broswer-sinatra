@@ -85,7 +85,7 @@ class PostsController < ApplicationController
   #destroy
   delete "/posts/:id/delete" do
     Post.destroy(params[:id])
-    redirect to "/all/posts"
+    redirect to "/my_posts"
   end
 
   

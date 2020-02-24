@@ -11,26 +11,26 @@
   <ul>
     <li>
       <label for="owner_name">Owner_name</label>
-      <input id="owner_name" type="text" name="post[owner_name]" value="<%= @post.owner_name %>" />
+      <input id="owner_name" type="text" required="required" name="post[owner_name]" value="<%= @post.owner_name %>" />
     </li>
     <li>
       <label for="location_name">Location_name</label>
-      <input id="location_name" type="text" name="post[location_name]"  value="<%= @post.location_name %>"
+      <input id="location_name" type="text" required="required" name="post[location_name]"  value="<%= @post.location_name %>"
       />
     </li>
     <li>
       <label for="dogs">Dogs</label>
-      <input id="dogs" type="text" name="post[dogs]"  value="<%= @post.dogs %>"
+      <input id="dogs" type="number" required="required" name="post[dogs]"  value="<%= @post.dogs %>"
       />
     </li>
     <li>
       <label for="cats">Cats</label>
-      <input id="cats" type="text" name="post[cats]"  value="<%= @post.cats %>"
+      <input id="cats" type="number" required="required" name="post[cats]"  value="<%= @post.cats %>"
       />
     </li>
     <li>
       <label for="birds">Birds</label>
-      <input id="birds" type="text" name="post[birds]"  value="<%= @post.birds %>"
+      <input id="birds" type="number" required="required" name="post[birds]"  value="<%= @post.birds %>"
       />
     </li>
   </ul>
