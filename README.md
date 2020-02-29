@@ -1,30 +1,24 @@
 
-Sinatra Project
-  My project is meant to be a way to get allow shelter owners to create posts for their shelters so that other owners or potentially people can see how many of each pet do they have at the shelter.
+Sinatra Project (PetBooK)
+  My project is meant to be a way to allow shelter owners to create posts for their shelters so that other owners or potentially people can see how many of each pet they have at the shelter.Each post will have information such as shleter owner name, shelter location, number of dogs, number of cats, and number of birds. Anyone can create an account and view anyones posts but they can only edit their own posts.
 
 Getting Started
 To get started you will have to do a git clone of git@github.com:mendozacm/in-broswer-sinatra.git then run bundle install, run shotgun, and then go to the specified address from shotgun
 
 Prerequisites
-What things you need to install the software and how to install them
 An in browser IDE or local IDE
 
+Installing
+-run "git clone git@github.com:mendozacm/in-broswer-sinatra.git"
+-type "cd in-broswer-sinatra/" into the terminal (careful as broswer is not the same as browser)
+-run bundle install 
+-run shotgun
+-go to the generated web adress
 
-End with an example of getting some data out of the system or using it for a little demo
 
 Running the tests
-Explain how to run the automated tests for this system
+N/A
 
-Break down into end to end tests
-Explain what these tests test and why
-
-Give an example
-And coding style tests
-Explain what these tests test and why
-
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
 
 Built With
 Dropwizard - The web framework used
@@ -37,7 +31,7 @@ Versioning
 We use SemVer for versioning. For the versions available, see the tags on this repository.
 
 Authors
-Cesar Mendoza - Initial work
+Cesar Mendoza
 
 
 License
