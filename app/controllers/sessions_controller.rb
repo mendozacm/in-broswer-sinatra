@@ -5,7 +5,12 @@ class SessionsController < ApplicationController
   end
   
   get '/logged_in' do
+    if logged_in?
     erb :user_homepage
+    else
+      redirect '/'
+    end
+    
   end
   
   post '/sessions' do

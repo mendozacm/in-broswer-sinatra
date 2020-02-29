@@ -16,20 +16,32 @@ class PostsController < ApplicationController
   
   #read find all posts for a single user
   get '/posts/:user_id' do
-    @posts = Post.where(user_id:(params[:user_id]))
-    erb :show
+    if logged_in?
+      @posts = Post.where(user_id:(params[:user_id]))
+      erb :show
+    else
+      redirect '/'
+    end
   end
   
   #read a single post based on the post id
   get '/posts/:id/single' do
-    @post = Post.where(id:(params[:id]))
-    erb :show_single_post
+    if logged_in?
+      @post = Post.where(id:(params[:id]))
+      erb :show_single_post
+    else 
+      redirect '/'
+    end
   end
 
   #shows the last post that was made 
   get '/posts' do
-    @posts = Post.all 
-    erb :single_post
+    if logged_in?
+      @posts = Post.all 
+      erb :single_post
+    else
+      redirect '/'
+    end
   end
   
    #saves a new post into the database
@@ -54,38 +66,58 @@ class PostsController < ApplicationController
   
    #shows all the posts that have been made by everyone
   get '/all/posts' do
-    @posts = Post.all
-    erb :all_posts 
+    if logged_in?
+      @posts = Post.all
+      erb :all_posts 
+    else
+      redirect '/'
+    end
   end
  
  
   get '/posts/:id/edit' do
-    @post = Post.find_by_id(params[:id])
+    if logged_in?
+      @post = Post.find_by_id(params[:id])
     
-    if @post && @post.user_id == current_user.id
-      erb :edit_post
+      if @post && @post.user_id == current_user.id
+          erb :edit_post
+      else 
+        redirect '/my_posts'
+      end
     else 
-      redirect '/my_posts'
+      redirect '/'
     end
   end
   
   #show only my posts
   get '/my_posts' do
+    if logged_in?
      @posts = Post.where(user_id:(current_user.id))
-    erb :my_posts
+      erb :my_posts
+    else 
+      redirect '/'
+    end
   end
   
    # update
   patch "/posts/:id/single" do
-    @post = Post.find(params[:id])
-    @post.update(params[:post])
-    redirect to "/posts/#{ @post.id }/single"
+    if logged_in?
+      @post = Post.find(params[:id])
+      @post.update(params[:post])
+      redirect to "/posts/#{ @post.id }/single"
+    else
+      redirect '/'
+    end
   end
   
   #destroy
   delete "/posts/:id/delete" do
-    Post.destroy(params[:id])
-    redirect to "/my_posts"
+    if logged_in?
+      Post.destroy(params[:id])
+      redirect to "/my_posts"
+    else 
+      redirect '/'
+    end
   end
 
   
